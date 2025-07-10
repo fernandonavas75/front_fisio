@@ -1,0 +1,33 @@
+/* Estilo para los cuadros estadísticos */
+.card {
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  text-align: center;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  color: #355179;
+}
+
+.card-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #4a4a4a;
+}
+
+/* Estilo para los gráficos */
+.card-body canvas {
+  max-height: 400px;
+}
+/* Estilo para el título "Resumen" */
+.resumen-titulo h2 {
+  font-size: 1.75rem;
+  color: #355179;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}

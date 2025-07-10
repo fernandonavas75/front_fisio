@@ -1,0 +1,156 @@
+/* === Fondo y fuente general === */
+body {
+  background: #f6f8fb;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* === Header superior === */
+.header-bar {
+  background: #253144;
+  color: white;
+  padding: 1.25rem 1.5rem;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 24px rgba(34, 74, 130, 0.09);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-bar h3 {
+  margin: 0;
+  font-weight: 600;
+  font-size: 1.48rem;
+}
+
+/* === Botones generales === */
+.btn-primary {
+  background: #345286;
+  border: none;
+  border-radius: 10px;
+  font-weight: 500;
+  padding: 0.45rem 1rem;
+  transition: background 0.2s ease;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background: #253144;
+  color: white;
+}
+
+.btn-outline-light {
+  color: #253144;
+  background: #f7fafd;
+  border: 1.5px solid #e6eefc;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.btn-outline-light:hover {
+  background: #e8f0fc;
+}
+
+/* === Tabla personalizada de Fichas === */
+.table-fichas {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
+  background: white;
+}
+
+/* Encabezado */
+.table-fichas thead {
+  background-color: #e2eafc;
+}
+
+.table-fichas th {
+  text-align: center;
+  color: #355179;
+  font-weight: 600;
+  padding: 1rem;
+  border-bottom: 1px solid #f0f2f5; /* línea suave */
+  background-color: #e2eafc;
+}
+
+/* Celdas */
+.table-fichas td {
+  text-align: center;
+  padding: 0.85rem;
+  font-size: 0.95rem;
+  color: #333;
+  vertical-align: middle;
+  background-color: #fff;
+  border-bottom: 1px solid #f4f6f8; /* línea más tenue */
+}
+
+/* Filas alternas */
+.table-fichas tbody tr:nth-child(even) td {
+  background-color: #f9fbfd;
+}
+
+/* Hover */
+.table-fichas tbody tr:hover td {
+  background-color: #eef5ff;
+}
+
+/* Botón de edición */
+.btn-editar {
+  background-color: #345286;
+  color: white;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  border: none;
+  transition: background-color 0.2s ease;
+}
+
+.btn-editar:hover {
+  background-color: #253144;
+}
+
+/* Etiquetas de estado diagnóstico */
+.badge-diagnostico {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.84rem;
+  border-radius: 999px;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.badge-asociado {
+  background-color: #4caf50;
+  color: white;
+}
+
+.badge-sin {
+  background-color: #f0f0f0;
+  color: #888;
+  border: 1px solid #ddd;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.7rem;
+  }
+
+  .btn-primary,
+  .btn-outline-light {
+    width: 100%;
+  }
+
+  .table-fichas {
+    font-size: 0.9rem;
+  }
+
+  .btn-editar {
+    width: 100%;
+  }
+}

@@ -1,0 +1,147 @@
+/* Fuente base */
+body {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background-color: #f4f6f9;
+  color: #212529;
+  line-height: 1.6;
+}
+
+/* Contenedor principal */
+.container {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.07);
+  margin-top: 30px;
+}
+
+/* Títulos */
+h3, h4, h5 {
+  font-weight: 600;
+  color: #1f2d3d;
+  margin-bottom: 1.5rem;
+}
+
+/* Labels */
+.form-label {
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #344054;
+}
+
+/* Inputs, selects y textareas */
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="email"],
+textarea,
+select,
+.form-select {
+  border-radius: 10px;
+  border: 1px solid #d0d5dd;
+  padding: 12px 14px;
+  font-size: 0.96rem;
+  background-color: #fff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #4a7cd4;
+  box-shadow: 0 0 0 3px rgba(74, 124, 212, 0.2);
+  outline: none;
+}
+
+/* Textareas */
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Botones base */
+.btn {
+  font-weight: 500;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Botón primario */
+.btn-primary {
+  background-color: #4a7cd4;
+  border: none;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #395ca5;
+  box-shadow: 0 4px 12px rgba(74, 124, 212, 0.3);
+}
+
+/* Botón secundario */
+.btn-outline-secondary {
+  border-color: #c4cdd5;
+  color: #6b778c;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #f0f2f5;
+}
+
+/* Tablas */
+table th {
+  background-color: #4a7cd4;
+  color: #fff;
+  text-align: center;
+  font-weight: 500;
+}
+
+table td, table th {
+  border: 1px solid #dee2e6;
+  padding: 12px;
+}
+
+/* Secciones especiales como seguimiento */
+.border.rounded.p-3 {
+  background-color: #fdfefe;
+  border: 1px solid #e1e6eb;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+}
+
+/* Check y radio más grandes y limpios */
+.form-check-input {
+  transform: scale(1.2);
+  margin-right: 8px;
+}
+
+.form-check-label {
+  color: #495057;
+}
+
+/* Input tipo range */
+input[type="range"] {
+  width: 100%;
+  accent-color: #4a7cd4;
+}
+
+/* Paso activo si quieres destacarlo visualmente */
+.paso-activo {
+  border-left: 4px solid #4a7cd4;
+  padding-left: 15px;
+  margin-bottom: 25px;
+}
+
+/* Responsive en móvil */
+@media (max-width: 576px) {
+  .btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .container {
+    padding: 20px;
+  }
+}
+

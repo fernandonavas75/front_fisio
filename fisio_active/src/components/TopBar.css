@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css?family=Inter:400,500,600&display=swap');
+
+.header-bar {
+  background: #253144;
+  color: white;
+  padding: 1rem 1.5rem 1rem 1.5rem;
+  border-radius: 20px;
+
+  /* 👉 Este es el cambio importante */
+  margin: 1.5rem 1.5rem 1rem 1.5rem; /* ↑ → ↓ ← */
+
+  box-shadow: 0 4px 24px rgba(34, 74, 130, 0.09);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+
+.header-bar h3 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.65rem;
+  letter-spacing: 0.3px;
+}
+
+.admin-info {
+  font-size: 0.95rem;
+  color: #94a3b8;
+  margin-top: 0.25rem;
+}
+
+.btn-outline-light {
+  color: #253144;
+  border: 1.5px solid #e6eefc;
+  background: #f7fafd;
+  border-radius: 10px !important;
+  font-weight: 500;
+  padding: 0.4rem 1rem;
+  transition: background 0.18s, color 0.18s;
+}
+
+.btn-outline-light:hover {
+  background: #e8f0fc;
+  color: #1e263a;
+}
+
+.btn-primary {
+  background: #345286;
+  border: none;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 1.04rem;
+  padding: 0.4rem 1.07rem;
+  transition: background 0.16s;
+  color: #fff;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background: #253144;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .header-bar {
+    flex-direction: column;
+    gap: 0.7rem;
+    align-items: flex-start;
+  }
+
+  .btn-outline-light,
+  .btn-primary {
+    width: 100%;
+  }
+
+  .header-bar h3 {
+    font-size: 1.25rem;
+  }
+}

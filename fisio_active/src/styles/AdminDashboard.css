@@ -1,0 +1,103 @@
+body {
+  background: #f6f8fb;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+}
+
+.sidebar {
+  min-height: 100vh;
+  background: #253144;
+  color: #fff;
+  border-right: 1.5px solid #e3e6ef;
+  box-shadow: 2px 0 8px rgba(42, 57, 91, 0.05);
+}
+
+.sidebar a {
+  color: #e2e8f0;
+  text-decoration: none;
+  display: block;
+  padding: 10px 18px;
+  border-radius: 7px;
+  margin-bottom: 3px;
+  font-weight: 500;
+  transition: background 0.18s, color 0.18s;
+}
+
+.sidebar a.active,
+.sidebar a:hover {
+  background: #345286;
+  color: #fff;
+}
+
+.sidebar .sidebar-header {
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 20px 18px 18px 18px;
+  background: #223042;
+  letter-spacing: 0.5px;
+  border-radius: 10px;
+  margin-bottom: 18px;
+}
+
+.content {
+  padding: 2.2rem 1.7rem 2.2rem 1.7rem;
+}
+
+.card {
+  border-radius: 16px !important;
+  box-shadow: 0 2px 12px 0 rgba(40, 65, 115, 0.07) !important;
+  border: none;
+  transition: box-shadow 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+
+.card:hover {
+  box-shadow: 0 4px 16px 0 rgba(88, 132, 250, 0.13) !important;
+  transform: translateY(-2px) scale(1.02);
+}
+
+.card .btn {
+  border-radius: 7px !important;
+  font-weight: 500;
+  font-size: 0.98rem;
+}
+
+.card-title {
+  font-size: 1.04rem;
+  margin-top: 0.6rem;
+}
+
+.btn-fab {
+  position: absolute;
+  top: -18px;
+  right: -18px;
+  z-index: 10;
+  border-radius: 50%;
+  padding: 0.7rem 0.8rem;
+  font-size: 1.15rem;
+  box-shadow: 0 2px 8px rgba(42, 57, 91, 0.14);
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    min-height: auto;
+    position: fixed;
+    z-index: 1050;
+    width: 215px;
+    left: -220px;
+    top: 0;
+    bottom: 0;
+    transition: left 0.3s;
+  }
+
+  .sidebar.show {
+    left: 0;
+  }
+
+  .content {
+    padding: 1rem;
+  }
+
+  .card {
+    margin-bottom: 1.2rem;
+  }
+}

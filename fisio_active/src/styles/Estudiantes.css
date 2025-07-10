@@ -1,0 +1,75 @@
+/* === Tabla personalizada de Estudiantes === */
+.table-estudiantes {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
+  background: white;
+}
+
+/* Encabezado */
+.table-estudiantes thead {
+  background-color: #e2eafc;
+}
+
+.table-estudiantes th {
+  text-align: center;
+  color: #355179;
+  font-weight: 600;
+  padding: 1rem;
+  border-bottom: 1px solid #f0f2f5;
+  background-color: #e2eafc;
+}
+
+/* Celdas */
+.table-estudiantes td {
+  text-align: center;
+  padding: 0.85rem;
+  font-size: 0.95rem;
+  color: #333;
+  vertical-align: middle;
+  background-color: #fff;
+  border-bottom: 1px solid #f4f6f8;
+}
+
+/* Filas alternas */
+.table-estudiantes tbody tr:nth-child(even) td {
+  background-color: #f9fbfd;
+}
+
+.table-estudiantes tbody tr:hover td {
+  background-color: #eef5ff;
+}
+
+/* Botones pequeños en tabla */
+.table-estudiantes button {
+  padding: 6px 14px;
+  font-size: 0.88rem;
+  border-radius: 8px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .table-estudiantes {
+    font-size: 0.9rem;
+  }
+
+  .table-estudiantes button {
+    width: 100%;
+  }
+
+  /* Si llegas a tener encabezado tipo .header-bar en el futuro */
+  .header-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.7rem;
+  }
+
+  .btn-primary,
+  .btn-outline-light {
+    width: 100%;
+  }
+}
+

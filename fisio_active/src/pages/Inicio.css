@@ -1,0 +1,293 @@
+    /* Base del cuerpo y fondo general */
+    body {
+    font-family: 'Arial', sans-serif;
+    background-color: #040404; /* Fondo blanco */
+    color: #333333; /* Texto oscuro */
+    margin: 0;
+    padding: 0;
+    }
+
+    a {
+    text-decoration: none;
+    }
+
+    h1, h2, h5 {
+    font-weight: 800;
+    }
+
+    /* Estilo para el contenedor */
+    .container {
+    background-color: #f8f9fa; /* Fondo suave para el contenedor */
+    padding: 2rem; /* Espaciado dentro del contenedor */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave para un efecto de elevación */
+    margin-top: 20px; /* Margen superior para separar de otros elementos */
+    margin-bottom: 20px; /* Margen inferior para separar de otros elementos */
+    max-width: 1140px; /* Ancho máximo para evitar que se expanda demasiado */
+    width: 100%; /* Asegura que ocupe el 100% del ancho disponible */
+    }
+
+    .container .navbar-brand {
+    color: #007bff; /* Color azul para el texto de la marca */
+    }
+
+    .container .navbar-nav .nav-link {
+    color: #333333; /* Color del texto de los enlaces */
+    }
+
+    .container .navbar-nav .nav-link:hover {
+    color: #007bff; /* Color azul al pasar el ratón por encima de los enlaces */
+    }
+
+
+    /* Navbar con fondo negro */
+    .navbar.bg-light {
+    background-color: #1c5396 !important; /* Fondo negro */
+    }
+
+    .navbar.bg-light .navbar-brand,
+    .navbar.bg-light .nav-link {
+    color: #070707; /* Texto blanco */
+    }
+
+    .navbar.bg-light .navbar-nav .nav-link:hover {
+    color: #f1f1f1; /* Color más claro al pasar el mouse */
+    }
+
+
+    /* Navbar */
+    .navbar {
+    background-color: #007bff; /* Azul brillante */
+    color: rgb(25, 24, 24);
+    }
+
+    .navbar .navbar-brand {
+    font-weight: bold;
+    color: rgb(18, 17, 17);
+    }
+
+    .navbar .navbar-nav .nav-link {
+    color: rgb(97, 93, 93);
+    font-size: 1.1rem;  /* Tamaño de fuente mejorado */
+    }
+
+    .navbar .navbar-nav .nav-link:hover {
+    color: #e0e0e0; /* Color más claro cuando se pasa el mouse sobre el enlace */
+    }
+
+    /* Asegurando que el texto en el botón también sea visible */
+    .navbar .btn-primary {
+    background-color: #007bff; /* Azul */
+    color: white;
+    }
+
+    .navbar .btn-primary:hover {
+    background-color: #0056b3; /* Azul más oscuro en hover */
+    border-color: #0056b3;
+    }
+
+    /* Hero Section (Bienvenida) */
+    .hero-section {
+    background-color: #f1f5f8; /* Fondo gris muy suave */
+    padding: 4rem 0;
+    text-align: center;
+    border-bottom: 2px solid #dee2e6;
+    }
+
+    .hero-section h1 {
+    color: #007bff;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    }
+
+    .hero-section p {
+    font-size: 1.2rem;
+    color: #555;
+    }
+
+    .carousel-container-fixed {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    gap: 1rem;
+    margin-top: 2rem;
+    }
+
+    .carousel-viewport {
+    overflow: hidden;
+    width: 960px; /* 3 tarjetas visibles */
+    }
+
+    .carousel-track-fixed {
+    display: flex;
+    transition: transform 0.3s ease;
+    }
+
+    .carousel-card {
+    flex: 0 0 320px;
+    margin-right: 1rem;
+    background-color: #ffffff; /* Blanco para las tarjetas */
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding-bottom: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .carousel-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    }
+
+    .carousel-card h5 {
+    margin-top: 0.8rem;
+    color: #007bff; /* Azul para los títulos */
+    font-weight: 600;
+    }
+
+    .carousel-card p {
+    font-size: 1rem;
+    color: #666;
+    }
+
+    /* Efecto visual en tarjeta activa */
+    .carousel-card.active {
+    transform: scale(1.05);
+    box-shadow: 0 12px 20px rgba(0, 123, 255, 0.3);
+    z-index: 1;
+    }
+
+    /* Botones */
+    .carousel-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    }
+
+    .carousel-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    }
+
+    .carousel-btn.left {
+    left: 10px;
+    }
+
+    .carousel-btn.right {
+    right: 10px;
+    }
+
+    /* Sección sobre FisioActive */
+    #sobre {
+    background-color: #ffffff;
+    padding: 3rem 0;
+    text-align: center;
+    border-bottom: 1px solid #dee2e6;
+    }
+
+    #sobre h2 {
+    color: #007bff;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    }
+
+    #sobre p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+    }
+
+        .img-custom {
+        max-width: 60%; /* Reduce el tamaño de la imagen */
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        }
+
+    /* Sección de contacto */
+    #contacto {
+    background-color: #f1f5f8;
+    padding: 3rem 0;
+    text-align: center;
+    margin-bottom: 2rem;
+    }
+
+    #contacto h2 {
+    color: #007bff;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    }
+
+    #contacto p {
+    color: #555;
+    font-size: 1rem;
+    }
+
+   /* Footer */
+    /* Footer */
+    footer {
+    background-color: #1c5396; /* Fondo oscuro para el footer */
+    color: #ffffff; /* Color blanco para el texto */
+    text-align: center; /* Centrado del texto */
+    padding: 2rem 0; /* Espaciado cómodo alrededor del texto */
+    width: 100%; /* Asegura que el footer ocupe todo el ancho */
+    }
+
+    footer p {
+    margin: 0; /* Eliminar márgenes predeterminados */
+    font-size: 1rem; /* Tamaño adecuado para el texto */
+    color: #ffffff; /* Color blanco para todo el texto */
+    line-height: 1.5; /* Espaciado entre líneas para mayor legibilidad */
+    }
+
+    footer p.mb-1 {
+    font-size: 0.9rem; /* Hacer más pequeño el texto del copyright */
+    color: #080808; /* Gris suave para el texto del copyright */
+    }
+
+    footer p.mb-0 {
+    font-size: 1rem;
+    color: #1c5396; /* Blanco para el mensaje principal */
+    }
+
+    footer a {
+    color: #007bff; /* Color azul para los enlaces */
+    text-decoration: none; /* Sin subrayado por defecto */
+    }
+
+    footer a:hover {
+    text-decoration: underline; /* Subrayado al pasar el ratón sobre el enlace */
+    color: #0056b3; /* Azul más oscuro para el hover */
+    }
+
+    /* Footer específico con fondo negro */
+    footer.bg-dark.text-light.text-center.py-4.mt-5 {
+    background-color: #000000 !important; /* Fondo negro */
+    }
+
+    footer.bg-dark.text-light.text-center.py-4.mt-5 .text-light {
+    color: #ffffff; /* Texto blanco */
+    }
+
+    footer.bg-dark.text-light.text-center.py-4.mt-5 a {
+    color: #007bff; /* Enlaces en azul */
+    text-decoration: none; /* Eliminar subrayado */
+    }
+
+    footer.bg-dark.text-light.text-center.py-4.mt-5 a:hover {
+    color: #0056b3; /* Azul más oscuro en hover */
+    text-decoration: underline; /* Subrayar el enlace al pasar el ratón */
+    }
+
