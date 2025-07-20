@@ -30,31 +30,28 @@ import React from 'react';
 
    return(
     <div>
-    <h5 className='mb-4'> Datos del Paciente</h5>
-    <div className="row">
-        {/*columna inzquierda*/}
-        <div className="col-md-6">
-            <input type="text" className="form-control mb-2" name="id_paciente" placeholder='Nombres' value={values.nombres || ""} onChange={handle}/> //Tabla Paciente
-            <input type="text" className="form-control mb-2" name="edad" placeholder='Edad' value={values.edad || ""} onChange={handle} /> //Tabl Historial Clinico
-            <input type="text" className ="form-cotrol mb-2" name="estatura" placeholder='Estatura (cm)' value={values.estatura || ""} onChange={handle} /> // Tabla Historial Clinico
-            <input type="date" className='form-control mb-2' name='fecha_nacimiento' placeholder='Fecha de nacimiento' value={values.fechaNacimiento || ""}/> // Tabla Paciente
-            <input type="date" className='form-control mb-2' name="fecha_evaluacion" value={values.fechaEvaluacion || ""} onChange={handle} /> // Tabla Historial Clinico
+            <h5 className='mb-4'> Datos del Paciente</h5>
+            <div className="row">
+                <div className="col-md-6">
+                    <input type="text" className="form-control mb-2" name="nombres" placeholder='Nombres' value={values.nombres || ""} onChange={handle} />
+                    <input type="text" className="form-control mb-2" name="edad" placeholder='Edad' value={values.edad || ""} onChange={handle} />
+                    <input type="text" className="form-control mb-2" name="estatura" placeholder='Estatura (cm)' value={values.estatura || ""} onChange={handle} />
+                    <input type="date" className="form-control mb-2" name="fechaNacimiento" value={values.fechaNacimiento || ""} onChange={handle} />
+                    <input type="date" className="form-control mb-2" name="fechaEvaluacion" value={values.fechaEvaluacion || ""} onChange={handle} />
+                </div>
+                <div className="col-md-6">
+                    <input type="text" className="form-control mb-2" name="apellidos" placeholder='Apellidos' value={values.apellidos || ""} onChange={handle} />
+                    <input type="text" className="form-control mb-2" name="genero" placeholder='Género' value={values.genero || ""} onChange={handle} />
+                    <input type="text" className="form-control mb-2" name="escuela" placeholder='Escuela' value={values.escuela || ""} onChange={handle} />
+                    <input type="text" className="form-control mb-2" name="grado" placeholder='Grado' value={values.grado || ""} onChange={handle} />
+                    <input type="text" className="form-control mb-2" name="nombresTutor" placeholder='Nombre del Tutor' value={values.nombresTutor || ""} onChange={handle} />
+                    <input type="text" className="form-control mb-2" name="telefono_tutor" placeholder='Teléfono del Tutor' value={values.telefono_tutor || ""} onChange={handle} />
+                    <input type="email" className="form-control mb-2" name="correo_tutor" placeholder='Correo Electrónico del Tutor' value={values.correo_tutor || ""} onChange={handle} />
+                </div>
             </div>
-            {/*Columna derecha*/}
-            <div className="col-md-6">
-                <input type="text" className='form-control mb-2' name="apellidos" placeholder='Apellidos' value={values.apellidos || ""} onChange={handle}/> //Tabla Paciente
-                <input type="text" className='form-control mb-2'name="genero" placeholder='Genero' value={values.genero || ""} onChange={handle} /> // Tabla Paciente
-                <input type="text" className='form-conttol mb-2' name='escuela' placeholder='Escuela' value={values.escuela || ""} onChange={handle}/> //Tabla Historial Clinico
-                <input type="text" className='form-control mb-2' name="grado" placeholder='Grado' value={values.grado || ""} onChange={handle} /> //Tabla Historial Clinico
-                <input type="text" className='form-control mb-2' name='nombres_tutor' placeholder='Nombre del Tutor' value={values.nombresTutor}/> //Tabla Historial Clinico
-                <input type="text" className='form-control mb-2' name='telefono_tutor' placeholder='Telefono del Tutor' value={values.telefono_tutor} onChange={handle} /> //Tabla Historial Clinico
-                <input type="email" className='form-control  mb-2' name='correo_tutor' placeholder='Correo Electronico del Tutor' value={values.correo_tutor} onChange={handle}/> //Tabla Historial Clinico
+            <div className="text-end">
+                <button className="btn btn-primary mt-3" onClick={onNext}>Siguiente</button>
             </div>
-        </div>
-        <div className="text-end">
-            <button className="btn btn-primart mt-3" onClick={onNext}>Siguiente</button>
-        </div>
-    </div>
-    
+        </div>    
    );
  }
