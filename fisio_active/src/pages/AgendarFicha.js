@@ -1,14 +1,17 @@
 import React, { useState, useCallback } from "react";
 
-//utils, importes
+// utils, importes
 import { guardarEnLocalStorage } from "../utils/LocalStorageGuardar";
+import ModalWrapper from "../components/ui/ModalWrapper";
+import { enviarHistorialAOpenAI } from "../utils/enviarHistorial";
+
 // UI
 import StepButton from "../components/ui/StepButton";
 
 // Formularios
 import FormDatosPaciente from "../components/modals/FormDatosPaciente";
 import FormAntecedentesPersonales from "../components/modals/FormAntecedentesPersonales";
-//import FormAntecedentesFamiliares   from "../components/modals/FormAntecedentesFamiliares";
+// import FormAntecedentesFamiliares from "../components/modals/FormAntecedentesFamiliares";
 import FormEvaluacionPostural from "../components/modals/FormEvaluacionPostural";
 import FormEvaluacionFuncional from "../components/modals/FormEvaluacionFuncional";
 import FormPlanIntervencion from "../components/modals/FormPlanIntervencion";
@@ -18,7 +21,7 @@ import FormSeguimiento from "../components/modals/FormSeguimiento";
 const steps = [
   { id: "paciente", label: "Datos paciente", Comp: FormDatosPaciente },
   { id: "antePer", label: "Ant. personales", Comp: FormAntecedentesPersonales },
-  // { id: "anteFam",    label: "Ant. familiares",   Comp: FormAntecedentesFamiliares },
+  // { id: "anteFam", label: "Ant. familiares", Comp: FormAntecedentesFamiliares },
   { id: "postural", label: "Eval. postural", Comp: FormEvaluacionPostural },
   { id: "funcional", label: "Eval. funcional", Comp: FormEvaluacionFuncional },
   { id: "plan", label: "Plan intervención", Comp: FormPlanIntervencion },
@@ -28,6 +31,9 @@ const steps = [
 export default function HistoriaWizard() {
   const [data, setData] = useState({});
   const [active, setActive] = useState("paciente");
+
+  const [sugerencia, setSugerencia] = useState("");
+  const [showModal, setShowModal] = useState(false);
 
   const patch = useCallback((obj) => setData((d) => ({ ...d, ...obj })), []);
 
@@ -69,13 +75,31 @@ export default function HistoriaWizard() {
             onChange={patch}
             onPrev={goPrev}
             onNext={goNext}
-            onFinish={() => {
+            onFinish={async () => {
               guardarEnLocalStorage("ficha_paciente", data);
               console.log("Enviar a la API →", data);
+
+              try {
+                const sugerencias = await enviarHistorialAOpenAI(data);
+                console.log('Sugerencias recibidas:', sugerencias);
+                setSugerencia(sugerencias);
+                setShowModal(true);
+              } catch (err) {
+                //console.error("Error al obtener sugerencias de IA:", error);
+                alert("Error al generar sugerencias.");
+              }
             }}
           />
         </div>
       </div>
+
+      <ModalWrapper
+        show={showModal}
+        title="Sugerencias de tratamiento"
+        onClose={() => setShowModal(false)}
+      >
+        <pre className="whitespace-pre-wrap text-sm">{sugerencia}</pre>
+      </ModalWrapper>
     </div>
   );
 }
