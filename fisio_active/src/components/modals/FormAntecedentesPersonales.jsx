@@ -3,7 +3,7 @@ import React from "react";
 export default function FormAntecedentesPersonales({values,onChange,onClose,onNext,onPrev}){
     const handle = (e) =>{
         const {name,value}=e.target;
-        onchange({[name]:value});
+        onChange({[name]:value});
     };
     return(
         <div>
