@@ -9,7 +9,7 @@ const AgregarEstudiantes = () => {
   const navigate = useNavigate();
   const [cantidad, setCantidad] = useState('');
   const [estudiantes, setEstudiantes] = useState([]);
-  const [ultimoID, setUltimoID] = useState(1000);
+  // const [ultimoID, setUltimoID] = useState(1000);
   const [errorCantidad, setErrorCantidad] = useState('');
   const [sectorGlobal, setSectorGlobal] = useState('');
   const [mostrarContrasenas, setMostrarContrasenas] = useState(true);
