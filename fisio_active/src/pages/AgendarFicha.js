@@ -1,6 +1,7 @@
 // src/pages/AgendarFicha.js
 import React, { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import api from "../api/axiosConfig";
 // utils, importes
 import { guardarEnLocalStorage } from "../utils/LocalStorageGuardar";
 import ModalWrapper from "../components/ui/ModalWrapper";
@@ -83,16 +84,28 @@ export default function HistoriaWizard() {
               console.log("Enviar a la API →", data);
 
               try {
+                // 1. Intentar guardar la ficha, pero sin bloquear si falla
+                try {
+                  const response = await api.post('/ficha-completa/guardar-ficha', data);
+                  console.log("Ficha guardada correctamente:", response.data);
+                } catch (errorGuardado) {
+                  console.warn("Error al guardar la ficha, pero se continuará con la IA:", errorGuardado);
+                }
+
+                // 2. Generar sugerencias con IA (esto sí es obligatorio)
                 const sugerencias = await enviarHistorialAOpenAI(data);
                 console.log("Sugerencias recibidas:", sugerencias);
+
+                // 3. Redirigir
                 navigate("/sugerencias", { state: { sugerencias } });
-                //setSugerencia(sugerencias);
-                //setShowModal(true);
+
               } catch (err) {
-                alert("Error al generar sugerencias.");
+                console.error(err);
+                alert("Error al generar sugerencias con IA.");
               } finally {
                 setIsLoading(false);
               }
+
             }}
           />
         </div>
