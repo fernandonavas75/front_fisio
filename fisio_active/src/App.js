@@ -1,3 +1,4 @@
+// src/App.js
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './pages/Login';
 import EstDashboard from './pages/EstDashboard';
@@ -10,7 +11,7 @@ import Informe from './pages/Informe';
 import Layout from './components/Layout';
 import AgendarFicha from './pages/AgendarFicha'; // o como se llame tu vista
 import AgregarEstudiantes from './pages/AgregarEstudiantes';
-
+import SugerenciasIA from './pages/SugerenciasIA';
 import DetallePaciente from './pages/DetallePaciente';
 // NUEVO: Página informativa de inicio
 import Inicio from './pages/Inicio';
@@ -38,6 +39,7 @@ function App() {
         <Route path="/agendar" element={<Layout><AgendarFicha /></Layout>} />
         <Route path="/agregar-estudiantes" element={<Layout><AgregarEstudiantes /></Layout>} />
         <Route path="/informe" element={<Layout><Informe /></Layout>} />
+        <Route path="/sugerencias" element={<SugerenciasIA />} />
       </Routes>
     </Router>
   );

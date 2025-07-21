@@ -1,5 +1,6 @@
+// src/pages/AgendarFicha.js
 import React, { useState, useCallback } from "react";
-
+import { useNavigate } from "react-router-dom";
 // utils, importes
 import { guardarEnLocalStorage } from "../utils/LocalStorageGuardar";
 import ModalWrapper from "../components/ui/ModalWrapper";
@@ -17,7 +18,8 @@ import FormEvaluacionFuncional from "../components/modals/FormEvaluacionFunciona
 import FormPlanIntervencion from "../components/modals/FormPlanIntervencion";
 import FormSeguimiento from "../components/modals/FormSeguimiento";
 
-/* pasos */
+import "../pages/AgendarFicha.css"; // Importa tu CSS si aún no lo haces
+
 const steps = [
   { id: "paciente", label: "Datos paciente", Comp: FormDatosPaciente },
   { id: "antePer", label: "Ant. personales", Comp: FormAntecedentesPersonales },
@@ -29,11 +31,13 @@ const steps = [
 ];
 
 export default function HistoriaWizard() {
+  const navigate = useNavigate();
   const [data, setData] = useState({});
   const [active, setActive] = useState("paciente");
-
-  const [sugerencia, setSugerencia] = useState("");
+  const [sugerencia] = useState(""); // usado antes para depurar
   const [showModal, setShowModal] = useState(false);
+  const [isLoading, setIsLoading] = useState(false); // loading spinner
+  const [isSubmitting, setIsSubmitting] = useState(false); // para evitar múltiples envíos
 
   const patch = useCallback((obj) => setData((d) => ({ ...d, ...obj })), []);
 
@@ -46,9 +50,9 @@ export default function HistoriaWizard() {
   const goNext = () => setActive(steps[(idx + 1) % steps.length].id);
 
   return (
-    <div className="p-4 space-y-4">
+    <div className="contenedor-ficha">
       {/* Botonera scroll-horizontal */}
-      <div className="flex overflow-x-auto gap-2 pb-1">
+      <div className="botonera-scroll">
         {steps.map(({ id, label }) => (
           <StepButton
             key={id}
@@ -59,38 +63,46 @@ export default function HistoriaWizard() {
         ))}
       </div>
 
-      <hr className="border-t border-zinc-300 dark:border-zinc-600" />
+      <hr className="linea-divisoria" />
 
       {/* Panel central desplazable */}
-      <div className="w-full max-w-7xl mx-auto">
-        <h4 className="mb-3">{label}</h4>
+      <div className="panel-central">
+        <h4 className="titulo-etapa">{label}</h4>
 
-        {/* alto flexible:  calc(100vh - cabeceras)  */}
-        <div
-          className="overflow-y-auto"
-          style={{ maxHeight: "calc(100vh - 220px)" }}
-        >
+        <div className="contenedor-formulario">
           <Comp
             values={data}
             onChange={patch}
             onPrev={goPrev}
             onNext={goNext}
             onFinish={async () => {
+              if (isSubmitting) return;
+              setIsSubmitting(true);
+              setIsLoading(true);
               guardarEnLocalStorage("ficha_paciente", data);
               console.log("Enviar a la API →", data);
 
               try {
                 const sugerencias = await enviarHistorialAOpenAI(data);
-                console.log('Sugerencias recibidas:', sugerencias);
-                setSugerencia(sugerencias);
-                setShowModal(true);
+                console.log("Sugerencias recibidas:", sugerencias);
+                navigate("/sugerencias", { state: { sugerencias } });
+                //setSugerencia(sugerencias);
+                //setShowModal(true);
               } catch (err) {
-                //console.error("Error al obtener sugerencias de IA:", error);
                 alert("Error al generar sugerencias.");
+              } finally {
+                setIsLoading(false);
               }
             }}
           />
         </div>
+
+        {isLoading && (
+          <div className="overlay-cargando">
+            <div className="spinner"></div>
+            <p>Cargando sugerencias...</p>
+          </div>
+        )}
       </div>
 
       <ModalWrapper

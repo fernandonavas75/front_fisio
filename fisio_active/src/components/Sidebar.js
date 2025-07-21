@@ -48,6 +48,9 @@ const Sidebar = () => {
           <Link to="/informe" className={`sidebar-link ${isActive('/informe') ? 'active' : ''}`}>
             <i className="bi bi-clipboard-data me-2"></i>Informe
           </Link>
+          <Link to={"/sugerencias"} className={`sidebar-link ${isActive('/sugerencias') ? 'active' : ''}`}>
+            <i className="bi bi-lightbulb me-2"></i>Sugerencias IA
+          </Link>
         </>
       )}
 
@@ -58,6 +61,9 @@ const Sidebar = () => {
           </Link>
           <Link to="/fichas" className={`sidebar-link ${isActive('/fichas') ? 'active' : ''}`}>
             <i className="bi bi-journal-text me-2"></i>Mis Fichas
+          </Link>
+          <Link to="/sugerencias" className={`sidebar-link ${isActive('/sugerencias') ? 'active' : ''}`}>
+            <i className="bi bi-chat-text me-2"></i>Sugerencias IA
           </Link>
         </>
       )}
