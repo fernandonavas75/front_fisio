@@ -25,7 +25,7 @@ import api from '../../api/axiosConfig';
 
 export default function FormDatosPaciente({ values, onChange, onPrev, onNext }) {
     const [paciente, setPaciente] = useState([]); // Datos del paciente
-    const [setLoadingPacientes] = useState(true); // Cargando datos del paciente
+    const [loadingPacientes,setLoadingPacientes] = useState(true); // Cargando datos del paciente
 
     const handle = (e) => {
         const { name, value } = e.target;
@@ -40,12 +40,16 @@ export default function FormDatosPaciente({ values, onChange, onPrev, onNext }) 
         try {
             const { data: pacienteData } = await api.get(`/pacientes/${selectedId}`);
             const { data: historias } = await api.get(`/historias-clinicas/paciente/${selectedId}`);
+            const { data: relacion } = await api.get(`/paciente-estudiante/por-paciente/${selectedId}`);
+
             const historia = historias.length > 0 ? historias[0] : null; // Es para verificar si hay historias clínicas
             //La otra opcion del codigo de arriba
             // const historia = historias?.[0] || {};
-            const fechaNacimiento = pacienteData.fecha_nacimiento || "";
+            const fechaNacimiento = pacienteData.fecha_nacimiento.split('T')[0] || ''; // Formatear fecha a YYYY-MM-DD
             const edad = calcularEdad(fechaNacimiento);
             onChange({
+                ...values, // ✅ MANTENER FECHA_EVALUACION u otros campos previos
+                id_estudiante: relacion.id_estudiante,
                 nombres: pacienteData.nombres,
                 apellidos: pacienteData.apellidos,
                 genero: pacienteData.genero,
@@ -64,19 +68,21 @@ export default function FormDatosPaciente({ values, onChange, onPrev, onNext }) 
         };
         
     };
+
     useEffect(() => {
-            const fetchPacientes = async () => {
-                try {
-                    const { data } = await api.get('/pacientes');
-                    setPaciente(data);
-                } catch (error) {
-                    console.error("Error al cargar los pacientes:", error);
-                } finally {
-                    setLoadingPacientes(false);
-                }
-            };
-            fetchPacientes();
-        }, []);
+        const fetchPacientes = async () => {
+            try {
+                const { data } = await api.get('/pacientes');
+                setPaciente(data);
+            } catch (error) {
+                console.error("Error al cargar los pacientes:", error);
+            } finally {
+                setLoadingPacientes(false);
+            }
+        };
+        fetchPacientes();
+    }, []);
+
     return (
         <div>
             <h5 className='mb-4'> Datos del Paciente</h5>
@@ -97,7 +103,7 @@ export default function FormDatosPaciente({ values, onChange, onPrev, onNext }) 
                     <input type="text" className="form-control mb-2" name="edad" placeholder='Edad' value={values.edad || ""} onChange={handle} />
                     <input type="text" className="form-control mb-2" name="estatura" placeholder='Estatura (cm)' value={values.estatura || ""} onChange={handle} />
                     <input type="date" className="form-control mb-2" name="fechaNacimiento" value={values.fechaNacimiento || ""} onChange={handle} />
-                    <input type="date" className="form-control mb-2" name="fechaEvaluacion" value={values.fechaEvaluacion || ""} onChange={handle} />
+                    <input type="date" className="form-control mb-2" name="fecha_evaluacion" value={values.fecha_evaluacion || ""} onChange={handle} />
                 </div>
                 <div className="col-md-6">
                     <input type="text" className="form-control mb-2" name="apellidos" placeholder='Apellidos' value={values.apellidos || ""} onChange={handle} />
