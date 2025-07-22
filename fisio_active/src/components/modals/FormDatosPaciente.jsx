@@ -48,7 +48,7 @@ export default function FormDatosPaciente({ values, onChange, onPrev, onNext }) 
             const fechaNacimiento = pacienteData.fecha_nacimiento.split('T')[0] || ''; // Formatear fecha a YYYY-MM-DD
             const edad = calcularEdad(fechaNacimiento);
             onChange({
-                ...values, // ✅ MANTENER FECHA_EVALUACION u otros campos previos
+                ...values, 
                 id_estudiante: relacion.id_estudiante,
                 nombres: pacienteData.nombres,
                 apellidos: pacienteData.apellidos,
@@ -62,6 +62,7 @@ export default function FormDatosPaciente({ values, onChange, onPrev, onNext }) 
                 nombresTutor: historia.nombres_tutor || '',
                 telefono_tutor: historia.telefono_tutor || '',
                 correo_tutor: historia.correo_tutor || '',
+                fecha_evaluacion: values.fecha_evaluacion || new Date().toISOString(),
             });
         } catch (error) {
             console.error("Error al obtener los datos del paciente:", error);
