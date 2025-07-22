@@ -12,6 +12,8 @@ import AgendarFicha from './pages/AgendarFicha'; // o como se llame tu vista
 import AgregarEstudiantes from './pages/AgregarEstudiantes';
 import SugerenciasIA from './pages/SugerenciasIA';
 import DetallePaciente from './pages/DetallePaciente';
+import Licencia from './pages/licencia';  
+
 // NUEVO: Página informativa de inicio
 import Inicio from './pages/Inicio';
 
@@ -21,6 +23,7 @@ function App() {
       <Routes>
         {/* Página pública inicial */}
         <Route path="/" element={<Inicio />} />
+        <Route path="/licencia" element={<Licencia />} />
 
         {/* Login separado */}
         <Route path="/login" element={<Login />} />

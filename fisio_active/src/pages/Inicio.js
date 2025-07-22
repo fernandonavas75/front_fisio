@@ -28,6 +28,10 @@ const Inicio = () => {
               <li className="nav-item">
                 <a className="nav-link" href="#contacto">Contacto</a> {/* Ancla interna */}
               </li>
+              <li className="nav-item">
+                <a className="nav-link" onClick={() => navigate('/licencia')}>Licencia</a>
+              </li>
+
             </ul>
             <button className="btn btn-primary" onClick={() => navigate('/login')}>Iniciar sesión</button> {/* Redirige al login */}
           </div>
@@ -48,10 +52,10 @@ const Inicio = () => {
             {cards.map((card, i) => (
               <div key={i} className="col-md-4 mb-4">
                 <div className="card">
-                  <img 
-                    src={card.src} 
-                    alt={card.title} 
-                    className="card-img-top img-fluid" 
+                  <img
+                    src={card.src}
+                    alt={card.title}
+                    className="card-img-top img-fluid"
                     style={{ height: '200px', objectFit: 'cover' }} // Ajuste de tamaño
                   />
                   <div className="card-body">
@@ -70,12 +74,12 @@ const Inicio = () => {
         <h2>¿Qué es FisioActive?</h2>
         <img src="/img/foto4.jpg" alt="FisioActive" className="img-custom mb-4" />
         <p>
-            FisioActive es una aplicación web desarrollada por estudiantes de la carrera de Fisioterapia de la PUCE.
-            Su propósito es optimizar el registro, seguimiento y análisis de las historias clínicas generadas durante la atención a pacientes.
+          FisioActive es una aplicación web desarrollada por estudiantes de la carrera de Fisioterapia de la PUCE.
+          Su propósito es optimizar el registro, seguimiento y análisis de las historias clínicas generadas durante la atención a pacientes.
         </p>
         <p>
-            Esta herramienta fortalece la formación académica y contribuye a mejorar la atención fisioterapéutica brindada
-            por los futuros profesionales de salud.
+          Esta herramienta fortalece la formación académica y contribuye a mejorar la atención fisioterapéutica brindada
+          por los futuros profesionales de salud.
         </p>
       </section>
 

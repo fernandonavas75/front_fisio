@@ -45,9 +45,9 @@ const Login = () => {
           <span className="navbar-brand">FisioActive</span>
           <div className="collapse navbar-collapse">
             <ul className="navbar-nav me-auto">
-              <li className="nav-item"><a className="nav-link" href="#inicio">Inicio</a></li>
-              <li className="nav-item"><a className="nav-link" href="#sobre">Sobre</a></li>
-              <li className="nav-item"><a className="nav-link" href="#contacto">Contacto</a></li>
+              <li className="nav-item"><a className="nav-link" onClick={() => navigate('/')}>Inicio</a></li>
+              <li className="nav-item"><a className="nav-link" onClick={() => navigate('/')}>Sobre</a></li>
+              <li className="nav-item"><a className="nav-link" onClick={() => navigate('/')}>Contacto</a></li>
             </ul>
             <button className="btn btn-primary" onClick={() => navigate('./')}>Iniciar sesión</button>
           </div>

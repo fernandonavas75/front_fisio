@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/AdminDashboard.css';
 
 const CoordDashboard = () => {
   const [usuario, setUsuario] = useState(null);
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('usuario'));
@@ -18,7 +20,7 @@ const CoordDashboard = () => {
         <div className="col-md-3">
           <div
             className="card text-bg-success"
-            onClick={() => (window.location.href = '/estudiantes')}
+            onClick={() => navigate('/estudiantes')}
             style={{ cursor: 'pointer' }}
           >
             <div className="card-body text-center">
@@ -33,7 +35,7 @@ const CoordDashboard = () => {
         <div className="col-md-3">
           <div
             className="card text-bg-primary"
-            onClick={() => (window.location.href = '/pacientes')}
+            onClick={() => navigate('/pacientes')}
             style={{ cursor: 'pointer' }}
           >
             <div className="card-body text-center">
@@ -48,7 +50,7 @@ const CoordDashboard = () => {
         <div className="col-md-3">
           <div
             className="card text-bg-warning"
-            onClick={() => (window.location.href = '/fichas')}
+            onClick={() => navigate('/fichas')}
             style={{ cursor: 'pointer' }}
           >
             <div className="card-body text-center">
@@ -63,7 +65,7 @@ const CoordDashboard = () => {
         <div className="col-md-3">
           <div
             className="card text-bg-danger"
-            onClick={() => (window.location.href = '/asignar')}
+            onClick={() => navigate('/informe')}
             style={{ cursor: 'pointer' }}
           >
             <div className="card-body text-center">
