@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './pages/Login';
 import EstDashboard from './pages/EstDashboard';
 import CoordDashboard from './pages/CoordDashboard';
-
 import Pacientes from './pages/Pacientes';
 import Fichas from './pages/Fichas';
 import Estudiantes from './pages/Estudiantes';
