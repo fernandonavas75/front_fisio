@@ -28,9 +28,9 @@ const Inicio = () => {
               <li className="nav-item">
                 <a className="nav-link" href="#contacto">Contacto</a> {/* Ancla interna */}
               </li>
-              <li className="nav-item">
+              {/*<li className="nav-item">
                 <a className="nav-link" onClick={() => navigate('/licencia')}>Licencia</a>
-              </li>
+              </li>*/}
 
             </ul>
             <button className="btn btn-primary" onClick={() => navigate('/login')}>Iniciar sesión</button> {/* Redirige al login */}
